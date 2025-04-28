@@ -15,11 +15,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-import javafx.scene.media;
 
 import java.nio.file.Paths;
 
@@ -142,6 +143,7 @@ public class SearchEngine3 extends Application {
         Jwiki jwiki = new Jwiki(search);
         text.appendText(jwiki.getExtractText());
         text.setWrapText(true);
+        text.setEditable(false);
         infoStage.setTitle(search);
 
         //Ensure new stage is below current stage
