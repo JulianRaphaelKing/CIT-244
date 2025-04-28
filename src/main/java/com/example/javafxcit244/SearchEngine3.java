@@ -19,6 +19,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import javafx.scene.media;
+
+import java.nio.file.Paths;
 
 public class SearchEngine3 extends Application {
 
@@ -115,6 +118,12 @@ public class SearchEngine3 extends Application {
             Jwiki jwiki = new Jwiki(search);
             imageURL = jwiki.getImageURL();
             infoButton.setVisible(true);
+
+            //play sound if searched for a cat
+            if(search.equalsIgnoreCase("cat")){
+                Media m = new Media(Paths.get("meow.mp3").toUri().toString());
+                new MediaPlayer(m).play();
+            }
         } catch(Exception e) {
             infoButton.setVisible(false);
             System.err.println(search + " image not found. So, here's a kitten!");
