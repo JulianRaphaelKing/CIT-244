@@ -48,6 +48,7 @@ public class SearchEngine3 extends Application {
             getInfo(title.getText(), primaryStage);
         });
 
+
         searchTF.setOnKeyPressed((e) -> {
             if(e.getCode() == KeyCode.ENTER){
                 System.out.println("Searching for " + searchTF.getText());
