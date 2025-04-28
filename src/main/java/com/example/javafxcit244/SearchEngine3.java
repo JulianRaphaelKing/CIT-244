@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -36,6 +37,8 @@ public class SearchEngine3 extends Application {
         
         // Search Field (TextField)
         TextField searchTF = new TextField();
+
+
         
         // More Info Button
         Button infoButton = new Button("More Information");
@@ -44,8 +47,18 @@ public class SearchEngine3 extends Application {
         infoButton.setOnAction((e) -> {
             getInfo(title.getText(), primaryStage);
         });
-        
-        
+
+        searchTF.setOnKeyPressed((e) -> {
+            if(e.getCode() == KeyCode.ENTER){
+                System.out.println("Searching for " + searchTF.getText());
+                setTitle(searchTF, title);
+                // Set the image to the center
+                pane.setCenter(setImage(title.getText(), infoButton));
+                searchTF.clear();
+                searchTF.requestFocus();
+            }
+        });
+
         // Search Button (Button)
         Button searchButton = new Button("Search");
         searchButton.setPrefWidth(100);
